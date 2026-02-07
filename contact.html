@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Contact</title>
     <style>
         * {
             margin: 0;
@@ -13,6 +13,10 @@
 
         body {
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(13, 71, 161, 0.02) 0%, rgba(21, 101, 192, 0.02) 100%);
         }
 
         nav {
@@ -161,94 +165,7 @@
         }
 
         main {
-            padding: 2rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            color: #0d47a1;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        p {
-            color: #666;
-            line-height: 1.8;
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .contact-info {
-            background: linear-gradient(135deg, rgba(13, 71, 161, 0.05) 0%, rgba(21, 101, 192, 0.05) 100%);
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid #1565c0;
-        }
-
-        .contact-info div {
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-        }
-
-        .contact-info strong {
-            color: #0d47a1;
-        }
-
-        .contact-form {
-            margin-top: 2rem;
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #0d47a1;
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-family: Arial, sans-serif;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #1565c0;
-            box-shadow: 0 0 10px rgba(21, 101, 192, 0.2);
-        }
-
-        .form-group button {
-            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
-            color: white;
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .form-group button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 15px rgba(21, 101, 192, 0.3);
+            flex: 1;
         }
 
         footer {
@@ -292,6 +209,311 @@
             font-size: 0.85rem;
             padding-top: 1.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Contact Form Styles */
+        main {
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+            width: 100%;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-title {
+            text-align: center;
+            color: #0d47a1;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            grid-column: 1 / -1;
+        }
+
+        .contact-form-container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(13, 71, 161, 0.15);
+            border-top: 4px solid #1565c0;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-detail-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(13, 71, 161, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid #1565c0;
+        }
+
+        .contact-detail-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(13, 71, 161, 0.25);
+        }
+
+        .detail-icon {
+            font-size: 2.5rem;
+            min-width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+            border-radius: 50%;
+            color: white;
+            animation: iconBounce 2s ease-in-out infinite;
+        }
+
+        .contact-detail-item:nth-child(1) .detail-icon {
+            animation-delay: 0s;
+        }
+
+        .contact-detail-item:nth-child(2) .detail-icon {
+            animation-delay: 0.3s;
+        }
+
+        .contact-detail-item:nth-child(3) .detail-icon {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .detail-content {
+            flex: 1;
+        }
+
+        .detail-label {
+            color: #0d47a1;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .detail-text {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .detail-text a {
+            color: #1565c0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .detail-text a:hover {
+            color: #0d47a1;
+            text-decoration: underline;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            color: #0d47a1;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.85rem;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: Arial, sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1565c0;
+            box-shadow: 0 0 12px rgba(21, 101, 192, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .form-group button {
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+            color: white;
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(21, 101, 192, 0.35);
+        }
+
+        .form-group button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .status-message {
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .status-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .status-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                padding: 0.5rem;
+            }
+            nav ul li a {
+                font-size: 0.65rem;
+                padding: 0.4rem 0.6rem;
+            }
+            main {
+                padding: 2rem 1rem;
+            }
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .contact-form-container {
+                padding: 1.5rem;
+            }
+            .contact-detail-item {
+                padding: 1.5rem;
+            }
+            .detail-icon {
+                font-size: 2rem;
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav ul li a {
+                font-size: 0.6rem;
+                padding: 0.3rem 0.4rem;
+            }
+            .search-container input {
+                width: 80px !important;
+                font-size: 0.6rem;
+            }
+            main {
+                padding: 1.5rem 0.5rem;
+            }
+            .contact-title {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            .contact-wrapper {
+                gap: 1.5rem;
+            }
+            .contact-form-container {
+                padding: 1.2rem;
+            }
+            .form-group label {
+                font-size: 0.9rem;
+            }
+            .form-group input,
+            .form-group textarea {
+                padding: 0.7rem;
+                font-size: 0.9rem;
+            }
+            .form-group button {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            .contact-detail-item {
+                padding: 1.2rem;
+                gap: 1rem;
+            }
+            .detail-icon {
+                font-size: 1.8rem;
+                width: 45px;
+                height: 45px;
+            }
+            .detail-label {
+                font-size: 1rem;
+            }
+            .detail-text {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul li a {
+                font-size: 0.55rem;
+            }
+            .contact-title {
+                font-size: 1.2rem;
+            }
+            .contact-form-container {
+                padding: 1rem;
+            }
+            .contact-detail-item {
+                padding: 1rem;
+                gap: 0.8rem;
+            }
+            .detail-icon {
+                font-size: 1.5rem;
+                width: 40px;
+                height: 40px;
+            }
         }
 
         /* Mobile Responsive Design */
@@ -385,26 +607,6 @@
             }
         }
     </style>
-    <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name    = htmlspecialchars($_POST['name']);
-    $email   = htmlspecialchars($_POST['email']);
-    $message = htmlspecialchars($_POST['message']);
-
-    // Replace with your email ID
-    $to      = "your-email@example.com";  
-    $subject = "New Contact Form Submission";
-    $body    = "Name: $name\nEmail: $email\nMessage:\n$message";
-    $headers = "From: $email";
-
-    if (mail($to, $subject, $body, $headers)) {
-        echo "Thank you! Your message has been sent.";
-    } else {
-        echo "Sorry, there was a problem sending your message.";
-    }
-}
-?>
-
 </head>
 <body>
     <nav>
@@ -422,35 +624,69 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </nav>
 
     <main>
-        <h1>Contact Us</h1>
-        <p>Have a question or want to work with us? Get in touch! We'd love to hear from you and discuss how we can help your business grow.</p>
+        <h1 class="contact-title">Contact Us</h1>
+        <div class="contact-wrapper">
+            <div class="contact-form-container">
+                <div id="statusMessage" class="status-message"></div>
+                <form id="contact-form">
+                    <input type="hidden" name="to_email" value="thamseer4u@gmail.com">
+                    
+                    <div class="form-group">
+                        <label for="from_name">Name</label>
+                        <input type="text" id="from_name" name="from_name" required>
+                    </div>
 
-        <div class="contact-info">
-            <div>
-                <strong>📧 Email:</strong> contact@website.com
+                    <div class="form-group">
+                        <label for="reply_to">Email</label>
+                        <input type="email" id="reply_to" name="reply_to" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" id="submitBtn">Send Message</button>
+                    </div>
+                </form>
             </div>
-            <div>
-                <strong>📱 Phone:</strong> +1 (555) 123-4567
-            </div>
-            <div>
-                <strong>📍 Address:</strong> 123 Web Street, Internet City, IC 12345
+
+            <div class="contact-details">
+                <div class="contact-detail-item">
+                    <div class="detail-icon">📧</div>
+                    <div class="detail-content">
+                        <div class="detail-label">Email</div>
+                        <div class="detail-text">
+                            <a href="mailto:contact@website.com">contact@website.com</a><br>
+                            <a href="mailto:thamseer4u@gmail.com">thamseer4u@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-detail-item">
+                    <div class="detail-icon">📱</div>
+                    <div class="detail-content">
+                        <div class="detail-label">Phone</div>
+                        <div class="detail-text">
+                            <a href="tel:+1(555)123-4567">+1 (555) 123-4567</a><br>
+                            Available 24/7
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-detail-item">
+                    <div class="detail-icon">📍</div>
+                    <div class="detail-content">
+                        <div class="detail-label">Location</div>
+                        <div class="detail-text">
+                            123 Web Street<br>
+                            Internet City, IC 12345
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <h2>Contact Us</h2>
-  <form action="contact.php" method="post">
-    <label for="name">Name:</label><br>
-    <input type="text" name="name" required><br><br>
-
-    <label for="email">Email:</label><br>
-    <input type="email" name="email" required><br><br>
-
-    <label for="message">Message:</label><br>
-    <textarea name="message" rows="5" required></textarea><br><br>
-
-    <input type="submit" value="Send">
-  </form>
-
     </main>
 
     <footer>
@@ -467,48 +703,49 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </footer>
-    <!-- EmailJS integration -->
+
+    <!-- EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
     <script>
-        (function(){
-            // Replace YOUR_USER_ID with your EmailJS public key / user ID
-            emailjs.init('YOUR_USER_ID');
-        })();
+        // Initialize EmailJS - Replace YOUR_USER_ID with your EmailJS public key
+        emailjs.init('YOUR_USER_ID');
 
-        // Form submit handler using EmailJS
-        document.addEventListener('DOMContentLoaded', function(){
-            var form = document.getElementById('contact-form');
-            form.addEventListener('submit', function(e){
-                e.preventDefault();
-                var submitBtn = form.querySelector('button[type="submit"]');
-                submitBtn.disabled = true;
-                var originalText = submitBtn.textContent;
-                submitBtn.textContent = 'Sending...';
+        // Handle form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var submitBtn = document.getElementById('submitBtn');
+            var statusMessage = document.getElementById('statusMessage');
+            var originalText = submitBtn.textContent;
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            statusMessage.className = 'status-message';
+            statusMessage.textContent = '';
 
-                // Replace the following SERVICE_ID and TEMPLATE_ID with your EmailJS values
-                var SERVICE_ID = 'YOUR_SERVICE_ID';
-                var TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+            // Get form values
+            var templateParams = {
+                from_name: document.getElementById('from_name').value,
+                reply_to: document.getElementById('reply_to').value,
+                message: document.getElementById('message').value,
+                to_email: 'thamseer4u@gmail.com'
+            };
 
-                // build plain-text template parameters and include recipient
-                var templateParams = {
-                    from_name: form.querySelector('[name="from_name"]').value,
-                    reply_to: form.querySelector('[name="reply_to"]').value,
-                    message: form.querySelector('[name="message"]').value,
-                    to_email: 'thamseer4u@gmail.com'
-                };
-
-                emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
-                .then(function(response) {
-                    alert('Message sent successfully. You should receive an email shortly.');
-                    form.reset();
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = originalText;
-                }, function(error) {
-                    console.error('EmailJS error:', error);
-                    alert('Failed to send message. Please try again or contact us directly at contact@website.com');
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = originalText;
-                });
+            // Send email via EmailJS
+            // Replace YOUR_SERVICE_ID and YOUR_TEMPLATE_ID with your actual EmailJS IDs
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+            .then(function(response) {
+                statusMessage.className = 'status-message success';
+                statusMessage.textContent = '✓ Message sent successfully! We will contact you soon.';
+                document.getElementById('contact-form').reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }, function(error) {
+                console.error('Error sending email:', error);
+                statusMessage.className = 'status-message error';
+                statusMessage.textContent = '✗ Error sending message. Please try again or contact: contact@website.com';
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
             });
         });
     </script>
