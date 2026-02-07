@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background: linear-gradient(180deg, #0d47a1 0%, #1565c0 25%, #1976d2 50%, #1565c0 75%, #0d47a1 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37), 0 2px 12px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            border-bottom: 4px solid #0277bd;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+        }
+
+        nav::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 120%;
+            bottom: -1px;
+            left: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 Q300,30 600,60 T1200,60 L1200,120 L0,120 Z' fill='rgba(255,255,255,0.15)' stroke='rgba(255,255,255,0.2)' stroke-width='2'/%3E%3C/svg%3E");
+            background-size: 50% 100%;
+            animation: wave 7s linear infinite;
+        }
+
+        nav::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 120%;
+            bottom: -1px;
+            left: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,65 Q300,40 600,65 T1200,65 L1200,120 L0,120 Z' fill='rgba(255,255,255,0.1)' stroke='rgba(255,255,255,0.15)' stroke-width='2'/%3E%3C/svg%3E");
+            background-size: 50% 100%;
+            animation: wave 9s linear infinite reverse;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(-25px) translateY(-5px); }
+            50% { transform: translateX(-50px) translateY(0); }
+            75% { transform: translateX(-25px) translateY(5px); }
+            100% { transform: translateX(0) translateY(0); }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        nav ul li {
+            margin: 0 0.6rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 900;
+            transition: all 0.3s ease;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            animation: textGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+            0%, 100% { text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.3); }
+            50% { text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(100, 200, 255, 0.4); }
+        }
+
+        nav ul li a:hover {
+            color: #ffeb3b;
+            background: rgba(255, 255, 255, 0.2);
+            text-shadow: 0 2px 8px rgba(255, 235, 59, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .search-container {
+            position: relative;
+            z-index: 2;
+            margin-right: 2rem;
+            animation: slideInRight 0.6s ease-out;
+        }
+
+        .search-container input {
+            padding: 0.4rem 0.8rem;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 0.75rem;
+            width: 140px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .search-container input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-container input:focus {
+            width: 180px;
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(100, 200, 255, 0.5);
+        }
+
+        .search-container button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-container button:hover {
+            transform: translateY(-50%) scale(1.1);
+            color: #ffeb3b;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #0d47a1;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(21, 101, 192, 0.2);
+        }
+
+        .service-card h3 {
+            color: #1565c0;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+        }
+
+        .footer-links a:hover {
+            color: #ffeb3b;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul style="width: 100%; display: flex; justify-content: center; align-items: center; padding: 0 2rem; position: relative; z-index: 2; gap: 3rem;">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Photo Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <div class="search-container">
+                <input type="text" placeholder="Search website...">
+                <button type="submit">🔍</button>
+            </div>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Our Services</h1>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>🎨 Web Design</h3>
+                <p>Beautiful and modern web designs tailored to your brand identity and business needs. We create stunning visual experiences that engage your audience.</p>
+            </div>
+            <div class="service-card">
+                <h3>💻 Web Development</h3>
+                <p>Full-stack development solutions using the latest technologies and best practices for fast, secure, and scalable websites.</p>
+            </div>
+            <div class="service-card">
+                <h3>📱 Responsive Design</h3>
+                <p>Websites that look perfect on all devices, from desktop to mobile phones, ensuring optimal user experience everywhere.</p>
+            </div>
+            <div class="service-card">
+                <h3>🔍 SEO Optimization</h3>
+                <p>Search engine optimization services to improve your online visibility and increase organic traffic to your website.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="gallery.html">Photo Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="copyright">
+                &copy; 2026 thamseer.com. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

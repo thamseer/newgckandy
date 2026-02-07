@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WELCOME TO OUR WEBSITE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background: linear-gradient(180deg, #0d47a1 0%, #1565c0 25%, #1976d2 50%, #1565c0 75%, #0d47a1 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37), 0 2px 12px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            border-bottom: 4px solid #0277bd;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+        }
+
+        nav::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 120%;
+            bottom: -1px;
+            left: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 Q300,30 600,60 T1200,60 L1200,120 L0,120 Z' fill='rgba(255,255,255,0.15)' stroke='rgba(255,255,255,0.2)' stroke-width='2'/%3E%3C/svg%3E");
+            background-size: 50% 100%;
+            animation: wave 7s linear infinite;
+        }
+
+        nav::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 120%;
+            bottom: -1px;
+            left: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,65 Q300,40 600,65 T1200,65 L1200,120 L0,120 Z' fill='rgba(255,255,255,0.1)' stroke='rgba(255,255,255,0.15)' stroke-width='2'/%3E%3C/svg%3E");
+            background-size: 50% 100%;
+            animation: wave 9s linear infinite reverse;
+        }
+
+        nav::before {
+            animation: wave 7s linear infinite;
+            z-index: 2;
+        }
+
+        nav::after {
+            animation: wave 9s linear infinite reverse;
+            z-index: 1;
+        }
+
+        @keyframes wave {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            25% {
+                transform: translateX(-25px) translateY(-5px);
+            }
+            50% {
+                transform: translateX(-50px) translateY(0);
+            }
+            75% {
+                transform: translateX(-25px) translateY(5px);
+            }
+            100% {
+                transform: translateX(0) translateY(0);
+            }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        nav ul li {
+            margin: 0 0.6rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 900;
+            transition: all 0.3s ease;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            animation: textGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+            0%, 100% {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.3);
+            }
+            50% {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(100, 200, 255, 0.4);
+            }
+        }
+
+        nav ul li a:hover {
+            color: #ffeb3b;
+            background: rgba(255, 255, 255, 0.2);
+            text-shadow: 0 2px 8px rgba(255, 235, 59, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .search-container {
+            position: relative;
+            z-index: 2;
+            margin-right: 2rem;
+            animation: slideInRight 0.6s ease-out;
+        }
+
+        .search-container input {
+            padding: 0.4rem 0.8rem;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 0.75rem;
+            width: 140px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .search-container input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-container input:focus {
+            width: 250px;
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(100, 200, 255, 0.5);
+        }
+
+        .search-container button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-container button:hover {
+            transform: translateY(-50%) scale(1.1);
+            color: #ffeb3b;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        main {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            margin-top: 1rem;
+            line-height: 1.6;
+        }
+
+        .photo-album {
+            max-width: 100%;
+            margin: 0;
+            background: white;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .album-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .album-slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: fadeIn 0.5s ease-in;
+        }
+            /* More story section styles */
+            .more-story {
+                padding: 3rem 2rem;
+                background: linear-gradient(180deg, #ffffff 0%, #f1f7ff 100%);
+            }
+
+            .more-story .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1fr 380px;
+                gap: 2.5rem;
+                align-items: start;
+            }
+
+            .more-story .text {
+                background: none;
+            }
+
+            .more-story .text p {
+                color: #444;
+                line-height: 1.8;
+                margin-bottom: 1rem;
+                text-align: justify;
+            }
+
+            .more-story .sidebar {
+                background: #ffffff;
+                padding: 1rem;
+                border-radius: 10px;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            }
+
+            .story-thumbs {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+            }
+
+            .story-thumb {
+                overflow: hidden;
+                border-radius: 8px;
+            }
+
+            .story-thumb img {
+                width: 100%;
+                height: 90px;
+                object-fit: cover;
+                transition: transform 0.35s ease;
+            }
+
+            .story-thumb:hover img {
+                transform: scale(1.08);
+            }
+
+            @media (max-width: 900px) {
+                .more-story .container { grid-template-columns: 1fr; }
+            }
+
+
+        .album-slide.active {
+            display: block;
+        }
+
+        .album-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .album-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #1a5f7a 0%, #2980b9 100%);
+        }
+
+        .album-controls button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .album-controls button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.8);
+            color: #ffeb3b;
+            transform: scale(1.05);
+        }
+
+        .album-dots {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #ffeb3b;
+            transform: scale(1.2);
+        }
+
+        .dot:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .album-title {
+            padding: 1rem 1.5rem;
+            background: white;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .about-company {
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .about-company-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-company h2 {
+            color: #0d47a1;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-company .subtitle {
+            text-align: center;
+            color: #1565c0;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text-content p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        .about-text-content strong {
+            color: #0d47a1;
+        }
+
+        .story-highlight {
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .about-images-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .about-image-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s ease;
+            position: relative;
+            height: 250px;
+        }
+
+        .about-image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .about-image-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(13, 71, 161, 0.25);
+        }
+
+        .about-image-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(13, 71, 161, 0.8), transparent);
+            padding: 1.5rem;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-company h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        footer {
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+        }
+
+        .footer-links a:hover {
+            color: #ffeb3b;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            scroll-margin-top: 100px;
+        }
+
+        section h2 {
+            color: #1565c0;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        section p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        #home {
+            background: linear-gradient(135deg, rgba(13, 71, 161, 0.05) 0%, rgba(21, 101, 192, 0.05) 100%);
+        }
+
+        #about {
+            background: white;
+        }
+
+        #services {
+            background: linear-gradient(135deg, rgba(13, 71, 161, 0.05) 0%, rgba(21, 101, 192, 0.05) 100%);
+        }
+
+        #contact {
+            background: white;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(21, 101, 192, 0.2);
+        }
+
+        .service-card h3 {
+            color: #1565c0;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul style="width: 100%; display: flex; justify-content: center; align-items: center; padding: 0 2rem; position: relative; z-index: 2; gap: 3rem;">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="photo.html">Photo Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <div class="search-container">
+                <input type="text" placeholder="Search website...">
+                <button type="submit">🔍</button>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="photo-album">
+        <div class="album-container">
+            <div class="album-slide active">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&h=500&fit=crop" alt="Mountain Landscape">
+            </div>
+            <div class="album-slide">
+                <img src="https://images.imyfone.com/filme/filme/Blurred-mid-and-background-pic-to-make-slideshow.webp" alt="Ocean View">
+            </div>
+            <div class="album-slide">
+                <img src="https://images.imyfone.com/filme/filme/Photo-taken-during-sunset-full-of-color.webp" alt="Beach Sunset">
+            </div>
+            <div class="album-slide">
+                <img src="https://images.imyfone.com/filme/filme/different-texture-nature-photo.webp" alt="Nature Forest">
+            </div>
+            <div class="album-slide">
+                <img src="https://images.imyfone.com/filme/filme/blur-effect-photo.webp" alt="Sky View">
+            </div>
+        </div>
+        <div class="album-controls">
+            <div class="album-dots">
+                <span class="dot active" onclick="currentPhoto(0)"></span>
+                <span class="dot" onclick="currentPhoto(1)"></span>
+                <span class="dot" onclick="currentPhoto(2)"></span>
+                <span class="dot" onclick="currentPhoto(3)"></span>
+                <span class="dot" onclick="currentPhoto(4)"></span>
+            </div>
+        </div>
+    </div>
+
+    <section class="more-story">
+        <div class="container">
+            <div class="text">
+                <h2>Deep Dive: Our Story & Philosophy</h2>
+                <p>Since our founding, we've believed that great digital experiences begin with a single idea and the courage to bring it to life. We started as a tiny studio focused on clean, effective websites and have evolved into a multidisciplinary team that blends design, engineering, and strategy.</p>
+                <p>Every project we undertake begins with listening — to understand the problem, the audience, and the business goal. We then prototype, iterate, and refine until the solution is both delightful and effective. Our design-first approach ensures every interface is intuitive while our engineering rigor guarantees reliability and performance.</p>
+                <p>We value transparency and collaboration. Clients are involved at every step, from requirements and sketches to launch and analytics. This partnership-driven model produces better outcomes faster, with fewer surprises.</p>
+                <p>Innovation is part of our culture. Team members are encouraged to explore new technologies and share learnings — which keeps our solutions modern and scalable. We apply data-informed decisions alongside creative problem solving for measurable impact.</p>
+                <p>We are proud of our impact: empowering small businesses, accelerating startups, and modernizing legacy platforms. Our process is designed to provide clarity, speed, and exceptional quality, with a focus on long-term value.</p>
+                <p>Thank you for trusting us with your vision. We're excited to keep building, learning, and delivering exceptional web experiences.</p>
+                <div class="story-highlight">Trusted Partners • Data-driven Design • Scalable Engineering</div>
+            </div>
+            <aside class="sidebar">
+                <div class="story-thumbs">
+                    <div class="story-thumb"><img src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?w=400&h=300&fit=crop" alt="Office Team"></div>
+                    <div class="story-thumb"><img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=400&h=300&fit=crop" alt="Design Workshop"></div>
+                    <div class="story-thumb"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop" alt="Coding Session"></div>
+                    <div class="story-thumb"><img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=400&h=300&fit=crop" alt="Celebration"></div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <section class="about-company">
+        <div class="about-company-content">
+            <h2>Our Company Story</h2>
+            <p class="subtitle">Transforming Ideas Into Digital Reality Since 2015</p>
+            
+            <div class="about-grid">
+                <div class="about-text-content">
+                    <p><strong>The Beginning</strong></p>
+                    <p>Our journey started in 2015 with a simple vision: to help businesses succeed in the digital world. What began as a small team of passionate developers and designers has grown into a full-service web solutions company serving clients across diverse industries. We were founded on the belief that exceptional web design is not a luxury—it's a necessity for modern business success.</p>
+                    
+                    <p><strong>Our Growth</strong></p>
+                    <p>Over the years, we've completed hundreds of successful projects, from simple websites to complex web applications. Our growth has been fueled by our commitment to quality, innovation, and client satisfaction. We've expanded our team, invested in the latest technologies, and continuously refined our processes to deliver better results for every client.</p>
+                    
+                    <p><strong>Our Expertise</strong></p>
+                    <p>Today, our team includes experienced web designers, full-stack developers, UX/UI specialists, and digital strategists. We specialize in creating responsive, user-centric websites that not only look beautiful but also drive measurable business results. Our expertise spans modern technologies like React, Vue, Node.js, and cloud platforms like AWS and Google Cloud.</p>
+                    
+                    <p><strong>Our Philosophy</strong></p>
+                    <p>We believe in building lasting partnerships with our clients. Every project is unique, and we approach each one with fresh perspective and dedicated attention. We listen carefully to understand your business goals, market position, and target audience. Then we combine creative thinking with technical excellence to deliver solutions that exceed expectations and drive real business value.</p>
+                    
+                    <p><strong>Looking Forward</strong></p>
+                    <p>As we continue to grow, our commitment remains unchanged: to provide exceptional service, cutting-edge solutions, and genuine partnership with every client. We're excited about the future and the opportunities to help more businesses transform their digital presence and achieve their goals.</p>
+                    
+                    <div class="story-highlight">
+                        🎯 100+ Happy Clients | 500+ Projects Completed | 10+ Years Experience
+                    </div>
+                </div>
+
+                <div class="about-images-grid">
+                    <div class="about-image-card">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop" alt="Team Collaboration">
+                        <div class="image-overlay">Team Collaboration</div>
+                    </div>
+                    <div class="about-image-card">
+                        <img src="https://images.unsplash.com/photo-1552664730-f0c9ced8f7e3?w=500&h=300&fit=crop" alt="Innovation & Design">
+                        <div class="image-overlay">Innovation & Design</div>
+                    </div>
+                    <div class="about-image-card">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=300&fit=crop" alt="Development">
+                        <div class="image-overlay">Web Development</div>
+                    </div>
+                    <div class="about-image-card">
+                        <img src="https://images.unsplash.com/photo-1552664730-f7a5eecc0e56?w=500&h=300&fit=crop" alt="Success">
+                        <div class="image-overlay">Client Success</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.album-slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showPhoto(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        function nextPhoto() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showPhoto(currentIndex);
+        }
+
+        function previousPhoto() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showPhoto(currentIndex);
+        }
+
+        function currentPhoto(index) {
+            currentIndex = index;
+            showPhoto(currentIndex);
+        }
+
+        // Auto-play every 5 seconds
+        setInterval(nextPhoto, 5000);
+    </script>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="photo.html">Photo Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="copyright">
+                &copy; 2026 thamseer.com. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

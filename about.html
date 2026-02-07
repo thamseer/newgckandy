@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background: linear-gradient(180deg, #0d47a1 0%, #1565c0 25%, #1976d2 50%, #1565c0 75%, #0d47a1 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37), 0 2px 12px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            border-bottom: 4px solid #0277bd;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+        }
+
+        nav::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 120%;
+            bottom: -1px;
+            left: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 Q300,30 600,60 T1200,60 L1200,120 L0,120 Z' fill='rgba(255,255,255,0.15)' stroke='rgba(255,255,255,0.2)' stroke-width='2'/%3E%3C/svg%3E");
+            background-size: 50% 100%;
+            animation: wave 7s linear infinite;
+        }
+
+        nav::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 120%;
+            bottom: -1px;
+            left: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,65 Q300,40 600,65 T1200,65 L1200,120 L0,120 Z' fill='rgba(255,255,255,0.1)' stroke='rgba(255,255,255,0.15)' stroke-width='2'/%3E%3C/svg%3E");
+            background-size: 50% 100%;
+            animation: wave 9s linear infinite reverse;
+        }
+
+        @keyframes wave {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            25% {
+                transform: translateX(-25px) translateY(-5px);
+            }
+            50% {
+                transform: translateX(-50px) translateY(0);
+            }
+            75% {
+                transform: translateX(-25px) translateY(5px);
+            }
+            100% {
+                transform: translateX(0) translateY(0);
+            }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        nav ul li {
+            margin: 0 0.6rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 900;
+            transition: all 0.3s ease;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            animation: textGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+            0%, 100% {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.3);
+            }
+            50% {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(100, 200, 255, 0.4);
+            }
+        }
+
+        nav ul li a:hover {
+            color: #ffeb3b;
+            background: rgba(255, 255, 255, 0.2);
+            text-shadow: 0 2px 8px rgba(255, 235, 59, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .search-container {
+            position: relative;
+            z-index: 2;
+            margin-right: 2rem;
+            animation: slideInRight 0.6s ease-out;
+        }
+
+        .search-container input {
+            padding: 0.4rem 0.8rem;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 0.75rem;
+            width: 140px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .search-container input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-container input:focus {
+            width: 180px;
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(100, 200, 255, 0.5);
+        }
+
+        .search-container button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-container button:hover {
+            transform: translateY(-50%) scale(1.1);
+            color: #ffeb3b;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        main {
+            padding: 2rem;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #0d47a1;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            color: #666;
+            margin-top: 1rem;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+        }
+
+        .footer-links a:hover {
+            color: #ffeb3b;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+            margin-top: 2rem;
+        }
+
+        .about-text {
+            text-align: left;
+        }
+
+        .about-text p {
+            text-align: left;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .about-thumbnail {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .about-thumbnail img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-thumbnail:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(21, 101, 192, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul style="width: 100%; display: flex; justify-content: center; align-items: center; padding: 0 2rem; position: relative; z-index: 2; gap: 3rem;">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Photo Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <div class="search-container">
+                <input type="text" placeholder="Search website...">
+                <button type="submit">🔍</button>
+            </div>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>About Us</h1>
+        
+        <div class="about-section">
+            <div class="about-text">
+                <p><strong>Our Story</strong></p>
+                <p>We are a dedicated team committed to providing exceptional web design and development services. Founded in 2015, our company has grown from a small startup to a trusted partner for businesses worldwide. Our focus is on creating beautiful, functional, and user-friendly websites that help businesses succeed online.</p>
+                
+                <p><strong>Our Mission</strong></p>
+                <p>Our mission is to empower businesses with the digital tools they need to thrive in today's online marketplace. Whether you're a startup or an established company, we're here to help you reach your digital goals. We believe that great web design is more than just aesthetics—it's about solving problems and creating experiences.</p>
+                
+                <p><strong>Our Values</strong></p>
+                <p>With years of experience in web technology and design, we combine creativity with technical expertise to deliver outstanding results for our clients. We believe in building long-term relationships by providing exceptional service, honest communication, and continuous support. Every project is treated as a partnership, where your success is our success.</p>
+                
+                <p><strong>Our Team</strong></p>
+                <p>Our talented team consists of experienced designers, developers, and strategists who are passionate about creating innovative digital solutions. We stay updated with the latest technologies and trends to ensure our clients always receive cutting-edge solutions. Together, we transform ideas into powerful web experiences that engage audiences and drive business growth.</p>
+                
+                <p><strong>Our Promise</strong></p>
+                <p>We promise to deliver quality work on time, within budget, and with transparent communication throughout every project phase. Your vision becomes our mission, and we work tirelessly to exceed your expectations at every step of the journey.</p>
+            </div>
+
+            <div class="about-images">
+                <div class="about-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop" alt="Team Collaboration">
+                </div>
+                <div class="about-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1552664730-f76e6820d6a8?w=400&h=300&fit=crop" alt="Web Development">
+                </div>
+                <div class="about-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1552664730-f7a5eecc0e56?w=400&h=300&fit=crop" alt="Design Thinking">
+                </div>
+                <div class="about-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1552664730-f0c9ced8f7e3?w=400&h=300&fit=crop" alt="Innovation">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="gallery.html">Photo Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="copyright">
+                &copy; 2026 thamseer.com. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
