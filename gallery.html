@@ -446,6 +446,132 @@
             cursor: pointer;
             font-weight: 700;
         }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                padding: 0.5rem;
+            }
+            nav ul li a {
+                font-size: 0.65rem;
+                padding: 0.4rem 0.6rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            main {
+                padding: 1rem;
+            }
+            .album {
+                height: 300px;
+            }
+            .category-buttons {
+                gap: 0.5rem;
+            }
+            .category-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav ul li a {
+                font-size: 0.6rem;
+                padding: 0.3rem 0.4rem;
+            }
+            .search-container input {
+                width: 80px !important;
+                font-size: 0.6rem;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
+            main {
+                padding: 0.5rem;
+            }
+            .album {
+                height: 200px;
+            }
+            .album-dots {
+                bottom: 8px;
+            }
+            .dot {
+                width: 8px;
+                height: 8px;
+            }
+            .category-buttons {
+                gap: 0.3rem;
+                flex-wrap: wrap;
+            }
+            .category-btn {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.65rem;
+                min-height: 32px;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            .gallery-item {
+                height: 200px;
+            }
+            .lightbox-modal {
+                padding: 1rem;
+                width: 95%;
+                max-height: 90vh;
+            }
+            .lightbox-image {
+                max-width: 100%;
+                height: auto;
+                max-height: 60vh;
+            }
+            .lightbox-controls {
+                gap: 0.3rem;
+                flex-wrap: wrap;
+            }
+            .lightbox-controls button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
+            .lb-close {
+                font-size: 1.5rem;
+                top: 5px;
+                right: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul li a {
+                font-size: 0.55rem;
+                padding: 0.25rem 0.3rem;
+            }
+            h1 {
+                font-size: 1.1rem;
+            }
+            .album {
+                height: 150px;
+            }
+            .category-btn {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.6rem;
+                min-height: 28px;
+            }
+            .gallery-item {
+                height: 150px;
+            }
+            .lightbox-modal {
+                padding: 0.8rem;
+            }
+            .lightbox-image {
+                max-height: 50vh;
+            }
+        }
     </style>
 </head>
 <body>

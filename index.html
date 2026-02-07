@@ -587,6 +587,154 @@
             color: #1565c0;
             margin-bottom: 1rem;
         }
+
+        /* Additional Mobile Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                padding: 0.5rem;
+            }
+            nav ul li {
+                margin: 0.2rem;
+            }
+            nav ul li a {
+                font-size: 0.65rem;
+                padding: 0.4rem 0.6rem;
+            }
+            .search-container {
+                margin-right: 1rem;
+                width: auto;
+            }
+            .search-container input {
+                width: 100px !important;
+                font-size: 0.65rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            section h2 {
+                font-size: 1.5rem;
+            }
+            main {
+                padding: 1rem;
+            }
+            .album {
+                height: 300px;
+            }
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 0.5rem 0;
+            }
+            nav ul {
+                gap: 0.3rem;
+                padding: 0.3rem;
+            }
+            nav ul li {
+                margin: 0.1rem;
+            }
+            nav ul li a {
+                font-size: 0.55rem;
+                padding: 0.3rem 0.4rem;
+                letter-spacing: 0;
+            }
+            .search-container {
+                margin-right: 0.5rem;
+            }
+            .search-container input {
+                width: 70px !important;
+                font-size: 0.55rem;
+                padding: 0.25rem 0.4rem;
+            }
+            .search-container button {
+                font-size: 0.8rem;
+            }
+            h1 {
+                font-size: 1.3rem;
+                margin-bottom: 0.8rem;
+            }
+            h2 {
+                font-size: 1.1rem;
+            }
+            section h2 {
+                font-size: 1.2rem;
+            }
+            p {
+                font-size: 0.85rem;
+                margin-bottom: 0.8rem;
+            }
+            section {
+                padding: 1.5rem 1rem;
+            }
+            main {
+                padding: 0.5rem;
+            }
+            .album {
+                height: 200px;
+            }
+            .album-dots {
+                bottom: 10px;
+            }
+            .dot {
+                width: 8px;
+                height: 8px;
+            }
+            .more-story {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+            .story-image {
+                width: 100%;
+                height: auto;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .about-image-card {
+                height: 200px;
+            }
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-card {
+                padding: 1rem;
+            }
+            .footer-links {
+                gap: 0.5rem;
+                flex-direction: column;
+            }
+            .footer-links a {
+                font-size: 0.8rem;
+            }
+            .copyright {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul li a {
+                font-size: 0.5rem;
+                padding: 0.25rem 0.3rem;
+            }
+            h1 {
+                font-size: 1.1rem;
+            }
+            section h2 {
+                font-size: 1rem;
+            }
+            .album {
+                height: 150px;
+            }
+            p {
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>

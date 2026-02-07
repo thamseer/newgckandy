@@ -293,6 +293,97 @@
             padding-top: 1.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                padding: 0.5rem;
+            }
+            nav ul li a {
+                font-size: 0.65rem;
+                padding: 0.4rem 0.6rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            main {
+                padding: 1rem;
+                max-width: 100%;
+            }
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav ul li a {
+                font-size: 0.6rem;
+                padding: 0.3rem 0.4rem;
+            }
+            .search-container input {
+                width: 80px !important;
+                font-size: 0.6rem;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
+            p {
+                font-size: 0.85rem;
+            }
+            main {
+                padding: 0.5rem;
+            }
+            .contact-info {
+                padding: 1.5rem;
+            }
+            .contact-info div {
+                margin-bottom: 1rem;
+                font-size: 0.9rem;
+            }
+            .contact-form {
+                padding: 1rem;
+                margin-top: 1rem;
+            }
+            .form-group label {
+                font-size: 0.9rem;
+                margin-bottom: 0.35rem;
+            }
+            .form-group input,
+            .form-group textarea {
+                font-size: 0.9rem;
+                padding: 0.6rem;
+            }
+            .form-group button {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul li a {
+                font-size: 0.55rem;
+                padding: 0.25rem 0.3rem;
+            }
+            h1 {
+                font-size: 1.1rem;
+            }
+            p {
+                font-size: 0.8rem;
+            }
+            .contact-info {
+                padding: 1rem;
+            }
+            .contact-form {
+                padding: 0.8rem;
+            }
+            .form-group input,
+            .form-group textarea {
+                font-size: 0.85rem;
+                padding: 0.5rem;
+            }
+        }
     </style>
 </head>
 <body>
