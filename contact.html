@@ -385,6 +385,26 @@
             }
         }
     </style>
+    <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name    = htmlspecialchars($_POST['name']);
+    $email   = htmlspecialchars($_POST['email']);
+    $message = htmlspecialchars($_POST['message']);
+
+    // Replace with your email ID
+    $to      = "your-email@example.com";  
+    $subject = "New Contact Form Submission";
+    $body    = "Name: $name\nEmail: $email\nMessage:\n$message";
+    $headers = "From: $email";
+
+    if (mail($to, $subject, $body, $headers)) {
+        echo "Thank you! Your message has been sent.";
+    } else {
+        echo "Sorry, there was a problem sending your message.";
+    }
+}
+?>
+
 </head>
 <body>
     <nav>
@@ -417,35 +437,20 @@
             </div>
         </div>
 
-        <div class="contact-form">
-            <!--
-                To enable email delivery you'll need an EmailJS account (https://www.emailjs.com/).
-                1) Create account and add an email service (get SERVICE_ID)
-                2) Create an email template (get TEMPLATE_ID) and set variables: from_name, reply_to, message
-                3) Get your Public Key / User ID and replace YOUR_USER_ID below
-                Then replace YOUR_SERVICE_ID and YOUR_TEMPLATE_ID in the script at the bottom of this file.
-            -->
-            <form id="contact-form">
-                <!-- target recipient (pre-filled) -->
-                <input type="hidden" name="to_email" value="thamseer4u@gmail.com">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="from_name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="reply_to" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit">Send Message</button>
-                </div>
-            </form>
-            <p style="margin-top:0.75rem; font-size:0.9rem; color:#555">Note: replace EmailJS placeholders in the script to start receiving emails.</p>
-        </div>
+        <h2>Contact Us</h2>
+  <form action="contact.php" method="post">
+    <label for="name">Name:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label for="message">Message:</label><br>
+    <textarea name="message" rows="5" required></textarea><br><br>
+
+    <input type="submit" value="Send">
+  </form>
+
     </main>
 
     <footer>
